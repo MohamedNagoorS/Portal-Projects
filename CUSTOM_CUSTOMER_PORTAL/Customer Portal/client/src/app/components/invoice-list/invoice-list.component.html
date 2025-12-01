@@ -1,0 +1,11 @@
+<app-data-table
+  [data]="invoices"
+  [columns]="[
+    { field: 'invoiceNumber', header: 'Invoice Number' },
+    { field: 'invoiceDate', header: 'Invoice Date' },
+    { field: 'amount', header: 'Amount' },
+    { field: 'currency', header: 'Currency' },
+    { field: 'invoiceNumber', header: 'Download', isButton: true } 
+  ]"
+  (buttonClick)="onDownloadClick($event)"
+></app-data-table>

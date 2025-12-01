@@ -1,0 +1,30 @@
+<div class="invoice-list">
+  <table class="data-table" *ngIf="invoices && invoices.length > 0; else noInvoices">
+    <thead>
+      <tr>
+        <th>Invoice Number</th>
+        <th>Invoice Date</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inv of invoices">
+        <td>{{ inv.invoiceNumber || inv.INVOICE_NUMBER || inv.VBELN }}</td>
+        <td>{{ inv.invoiceDate || inv.INVOICE_DATE || inv.BLDAT }}</td>
+        <td>{{ inv.amount || inv.AMOUNT || inv.NET_VALUE }}</td>
+        <td>{{ inv.currency || inv.CURRENCY }}</td>
+        <td>
+          <button type="button" (click)="onDownloadClick(inv)" class="download-btn">
+            <span class="download-icon">⬇</span> Download PDF
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noInvoices>
+    <div class="no-data">No invoices available</div>
+  </ng-template>
+</div>

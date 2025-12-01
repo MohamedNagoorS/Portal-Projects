@@ -1,0 +1,24 @@
+<div class="aging-container">
+  <div class="chart-wrapper">
+    <canvas baseChart
+      [data]="barChartData"
+      [type]="barChartType"
+      [options]="barChartOptions">
+    </canvas>
+  </div>
+</div>
+
+<!-- Use the correct mapped field names here -->
+<div class="table-wrapper">
+  <h3>Details</h3>
+  <app-data-table
+    [data]="agingData"
+    [columns]="[
+      { field: 'invoiceNumber', header: 'Document Number' },
+      { field: 'invoiceDate', header: 'Date' },
+      { field: 'amount', header: 'Amount' },
+      { field: 'currency', header: 'Currency' },
+      { field: 'agingDays', header: 'Days Overdue' }
+    ]"
+  ></app-data-table>
+</div>

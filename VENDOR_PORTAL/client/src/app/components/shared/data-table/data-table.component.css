@@ -1,0 +1,82 @@
+/* Data table wrapper: adds responsive behavior and matches theme */
+.data-table-wrapper {
+	width: 100%;
+	border-radius: 8px;
+	background: var(--surface);
+	border: 1px solid var(--border);
+}
+
+/* scroll only the table body so the header can stick */
+.table-scroll {
+	max-height: 420px; /* reasonable default, adjust per layout */
+	overflow: auto;
+	border-top: 1px solid var(--border);
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.table-controls { padding: 12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px }
+.search-group{display:flex;gap:8px;align-items:center}
+.search-input{padding:8px 12px;border-radius:6px;border:1px solid var(--border);min-width:220px}
+.date-input{padding:8px 10px;border-radius:6px;border:1px solid var(--border)}
+.table-controls .btn{height:36px}
+
+.data-table {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 600px;
+}
+
+/* Sticky header styling when scrolling the table body */
+.data-table thead th {
+	position: sticky;
+	top: 0;
+	background: linear-gradient(90deg, var(--primary-dark), var(--primary-color));
+	color: var(--surface);
+	z-index: 6;
+}
+
+.data-table thead th {
+	padding: 12px 16px;
+}
+
+.data-table tbody td {
+	padding: 12px 16px;
+	vertical-align: middle;
+}
+
+.data-table .empty {
+	padding: 28px;
+	text-align: center;
+	color: var(--text-secondary);
+}
+
+.data-table .status-pill {
+	border-radius: 16px;
+	padding: 6px 10px;
+	font-size: 12px;
+}
+
+.data-table .small {
+	font-size: 13px;
+}.btn-download {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.btn-download:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+	.data-table-wrapper { overflow-x: auto; }
+	.data-table { min-width: 520px; }
+	.data-table thead th, .data-table tbody td { padding: 10px; }
+}
+

@@ -1,0 +1,38 @@
+<div class="profile-container">
+  <h1 class="page-title">Profile</h1>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading profile...</p>
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" class="error-message card">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage && profileData">
+
+    <div class="profile-header card">
+      <div class="profile-header-inner">
+        <div class="profile-avatar" aria-hidden="true">
+          <!-- initials from name or CUSTOMER_ID -->
+          <span class="avatar-text">{{ initials }}</span>
+        </div>
+        <div class="profile-meta">
+          <div class="profile-name">{{ profileData.NAME?.[0] || 'Unknown' }}</div>
+          <div class="profile-sub">ID: {{ profileData.CUSTOMER_ID?.[0] || 'N/A' }}</div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="profile-grid">
+      <div class="profile-card" *ngFor="let field of getProfileFields()">
+        <div class="profile-card-inner">
+          <div class="profile-label">{{ field.label }}</div>
+          <div class="profile-value">{{ field.value || 'N/A' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

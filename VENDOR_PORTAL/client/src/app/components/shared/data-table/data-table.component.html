@@ -1,0 +1,47 @@
+<div class="data-table-wrapper">
+
+  <div class="table-controls">
+    <div class="search-group">
+      <input type="search" placeholder="Search..." class="search-input"
+        (input)="onSearchTextChange($any($event.target).value)" />
+      <input type="date" class="date-input" (change)="onSearchDateChange($any($event.target).value)" />
+      <button class="btn btn-outline" type="button"
+        (click)="onSearchTextChange(''); onSearchDateChange('')">Clear</button>
+    </div>
+  </div>
+
+  <div #wrapper class="table-scroll" (scroll)="onWrapperScroll(wrapper)">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th *ngFor="let col of columns">{{ col.header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of filteredData.length ? filteredData : data">
+          <td *ngFor="let col of columns">
+            <ng-container *ngIf="!col.isButton">
+              {{ getColumnValue(row, col) }}
+            </ng-container>
+
+            <ng-container *ngIf="col.isButton">
+              <button class="btn-primary-sm" (click)="onButtonClick(row)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+                  style="height:14px;vertical-align:middle;margin-right:6px">
+                  <path d="M12 3v12" stroke="currentColor" stroke-linecap="round" stroke-width="1.2" />
+                  <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="1.2" />
+                  <rect x="4" y="17" width="16" height="3" rx="1" fill="none" stroke="currentColor" stroke-width="1" />
+                </svg>Download
+              </button>
+            </ng-container>
+
+          </td>
+        </tr>
+        <tr *ngIf="(filteredData.length === 0) && (data.length > 0)">
+          <td [attr.colspan]="columns.length" class="empty">No results found for your search.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

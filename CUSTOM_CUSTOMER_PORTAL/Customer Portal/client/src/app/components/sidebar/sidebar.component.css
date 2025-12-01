@@ -1,0 +1,97 @@
+/* Sidebar — Darker maroon variant with improved contrast (cleaned) */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+  border-right: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow);
+  min-height: calc(100vh - 60px);
+  position: fixed;
+  left: 0;
+  top: 60px;
+  overflow-y: auto;
+  color: var(--surface);
+}
+
+.sidebar-nav {
+  padding: 20px 0;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 6px 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 22px;
+  color: var(--surface);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.12s ease;
+  border-left: 4px solid transparent;
+  border-radius: 6px;
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.06);
+  transform: translateX(4px);
+}
+
+.nav-link.active {
+  background-color: rgba(0,0,0,0.12);
+  border-left-color: rgba(255,255,255,0.18);
+  color: var(--surface);
+  font-weight: 700;
+}
+
+.nav-icon {
+  font-size: 18px;
+  margin-right: 12px;
+  width: 26px;
+  text-align: center;
+  color: var(--surface);
+  opacity: 0.98;
+}
+
+.nav-icon img{width:20px;height:20px;display:block;margin:0 auto}
+
+.nav-label {
+  font-size: 14px;
+  color: var(--surface);
+}
+
+.logout-link {
+  margin-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 18px;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.95);
+}
+
+.logout-link:hover {
+  color: rgba(255,255,255,1);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    position: relative;
+    top: 0;
+    min-height: auto;
+  }
+  
+  .nav-link {
+    padding: 10px 16px;
+  }
+  
+  .nav-label {
+    font-size: 13px;
+  }
+}
+

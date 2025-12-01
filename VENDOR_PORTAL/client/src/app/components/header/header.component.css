@@ -1,0 +1,51 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: var(--primary-color);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+  max-width: 100%;
+}
+
+.header-brand h2 {
+  color: var(--surface);
+  font-size: 20px;
+  margin: 0;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+}
+
+.customer-id {
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 16px;
+  }
+  
+  .header-brand h2 {
+    font-size: 18px;
+  }
+  
+  .customer-id {
+    font-size: 12px;
+  }
+}
+

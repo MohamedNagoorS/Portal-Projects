@@ -1,0 +1,89 @@
+<div class="dashboard-container">
+  <h1 class="page-title">Dashboard</h1>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading dashboard data...</p>
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" class="error-message card">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage">
+    <div class="kpi-grid">
+      <app-kpi-card
+        title="Total Inquiries"
+        [value]="totalInquiries"
+        icon="clipboard"
+        (cardClick)="scrollTo('inquiries-table')"
+      ></app-kpi-card>
+      <app-kpi-card
+        title="Sales Orders"
+        [value]="totalSalesOrders"
+        icon="box"
+        (cardClick)="scrollTo('salesorders-table')"
+      ></app-kpi-card>
+      <app-kpi-card
+        title="Deliveries"
+        [value]="totalDeliveries"
+        icon="truck"
+        (cardClick)="scrollTo('deliveries-table')"
+      ></app-kpi-card>
+      <app-kpi-card
+      title="Total Sales"
+      [value]="totalSales" 
+      icon="moneybag"
+      (cardClick)="scrollTo('salesorders-table')"></app-kpi-card>
+    </div>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading dashboard data...</p>
+  </div>
+    <div id="inquiries-table" class="card" *ngIf="inquiryData.length > 0">
+    <h2>Recent Inquiries</h2>
+  
+      <div class="table-wrapper">
+    <app-data-table
+      [data]="inquiryData"
+      [columns]="[
+    { field: 'VBELN', header: 'Inquiry No.' },
+    { field: 'ERDAT', header: 'Date' },
+    { field: 'WAERK', header: 'Currency' },
+    { field: 'NETWR', header: 'Net Value' }
+  ]"
+    ></app-data-table>
+  </div>
+  </div>
+
+    <div id="salesorders-table" class="card" *ngIf="salesOrderData.length > 0">
+      <h2>Sales Orders</h2>
+      <div class="table-wrapper">
+    <app-data-table
+      [data]="salesOrderData"
+      [columns]="[
+    { field: 'VBELN', header: 'Sales Order No.' },
+    { field: 'ERDAT', header: 'Date' },
+    { field: 'WAERK', header: 'Currency' },
+    { field: 'NETWR', header: 'Net Value' }
+  ]"
+    ></app-data-table>
+  </div>
+    </div>
+
+   
+    <div id="deliveries-table" class="card" *ngIf="deliveryData.length > 0">
+      <h2>Deliveries</h2>
+      <div class="table-wrapper">
+    <app-data-table
+      [data]="deliveryData"
+      [columns]="[
+    { field: 'VBELN_VL', header: 'Delivery No.' },
+    { field: 'ERDAT', header: 'Date' },
+    { field: 'ARKTX', header: 'Material' },
+    { field: 'LFIMG', header: 'Quantity' }
+  ]"
+    ></app-data-table>
+  </div>
+    </div>
+  
+</div>

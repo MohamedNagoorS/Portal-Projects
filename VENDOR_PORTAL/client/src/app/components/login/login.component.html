@@ -1,0 +1,63 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h1>Kaar Vendor Portal</h1>
+      <p>Sign in to access your account</p>
+      <div class="demo-credentials" *ngIf="showDemoHint">
+        <small>Demo: VEND001 / demo123</small>
+      </div>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label class="form-label" for="vendorId">Vendor ID</label>
+        <input
+          type="text"
+          id="vendorId"
+          formControlName="vendorId"
+          class="form-control"
+          placeholder="Enter Vendor ID"
+          maxlength="10"
+          [class.error]="vendorId?.invalid && vendorId?.touched"
+        />
+        <div *ngIf="vendorId?.invalid && vendorId?.touched" class="error-message">
+          <span *ngIf="vendorId?.errors?.['required']">Vendor ID is required</span>
+          <span *ngIf="vendorId?.errors?.['maxlength']">Vendor ID must be 10 characters or less</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="passcode">Password</label>
+        <input
+          type="password"
+          id="passcode"
+          formControlName="passcode"
+          class="form-control"
+          placeholder="Enter Password"
+          [class.error]="passcode?.invalid && passcode?.touched"
+        />
+        <div *ngIf="passcode?.invalid && passcode?.touched" class="error-message">
+          Password is required
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message" style="margin-bottom: 16px;">
+        {{ errorMessage }}
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="isLoading"
+        style="width: 100%;"
+      >
+        <span *ngIf="!isLoading">Sign In</span>
+        <span *ngIf="isLoading">Signing in...</span>
+      </button>
+      
+      <div *ngIf="loginForm.invalid && loginForm.touched" class="error-message" style="margin-top: 8px; font-size: 12px;">
+        Please fill in all required fields correctly.
+      </div>
+    </form>
+  </div>
+</div>

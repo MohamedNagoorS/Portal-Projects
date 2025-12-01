@@ -1,0 +1,27 @@
+<div class="finance-container">
+  <h1 class="page-title">Financials</h1>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading financial data...</p>
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" class="error-message card">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading">
+    <div class="card" *ngIf="invoices.length > 0">
+      <h2>Invoices</h2>
+      <app-invoice-list [invoices]="invoices"></app-invoice-list>
+    </div>
+
+    <div class="card" *ngIf="aging.length > 0"> <h2>Payment Aging</h2>
+      <app-aging [agingData]="aging"></app-aging>
+    </div>
+
+    <div class="card" *ngIf="memos.length > 0">
+      <h2>Credit/Debit Memos</h2>
+      <app-creditdebit-list [memos]="memos"></app-creditdebit-list>
+    </div>
+  </div>
+</div>

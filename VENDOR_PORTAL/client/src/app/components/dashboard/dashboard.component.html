@@ -1,0 +1,86 @@
+<div class="dashboard-container">
+  <h1 class="page-title">Vendor Dashboard</h1>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading dashboard data...</p>
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" class="error-message card">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage">
+    <div class="kpi-grid">
+      <app-kpi-card title="Total Quotations" [value]="totalQuotations" icon="clipboard"
+        (cardClick)="scrollTo('quotations-table')"></app-kpi-card>
+      <app-kpi-card title="Purchase Orders" [value]="totalPurchaseOrders" icon="box"
+        (cardClick)="scrollTo('purchase-orders-table')"></app-kpi-card>
+      <app-kpi-card title="Goods Receipts" [value]="totalGoodsReceipts" icon="truck"
+        (cardClick)="scrollTo('goods-receipts-table')"></app-kpi-card>
+      <app-kpi-card title="Total Invoices" [value]="totalInvoices" icon="moneybag"
+        (cardClick)="scrollTo('invoices-table')"></app-kpi-card>
+    </div>
+
+    <div id="quotations-table" class="card" *ngIf="quotationData.length > 0">
+      <h2>Recent Quotations</h2>
+      <div class="table-wrapper">
+        <app-data-table [data]="quotationData" [columns]="[
+            { field: 'LIFNR', header: 'Quotation No.' },
+            { field: 'EBELN', header: 'Doc No.' },
+            { field: 'BEDAT', header: 'Date' },
+            { field: 'TXZ01', header: 'Description' },
+            { field: 'MENGE', header: 'Quantity' },
+            { field: 'MEINS', header: 'Unit' }
+
+
+          ]"></app-data-table>
+      </div>
+    </div>
+
+    <div id="purchase-orders-table" class="card" *ngIf="purchaseOrderData.length > 0">
+      <h2>Purchase Orders</h2>
+      <div class="table-wrapper">
+        <app-data-table [data]="purchaseOrderData" [columns]="[
+            { field: 'EBELN', header: 'PO No.' },
+            { field: 'LIFNR', header: 'Vendor No.' },
+            { field: 'BEDAT', header: 'Date' },
+             { field: 'EKORG', header: 'Company Code' },
+             { field: 'MATNR', header: 'Material' },
+            { field: 'WAERS', header: 'Currency' },
+            { field: 'NETPR', header: 'Net Price' }
+          ]"></app-data-table>
+      </div>
+    </div>
+
+    <div id="goods-receipts-table" class="card" *ngIf="goodsReceiptData.length > 0">
+      <h2>Goods Receipts</h2>
+      <div class="table-wrapper">
+        <app-data-table [data]="goodsReceiptData" [columns]="[
+            { field: 'MBLNR', header: 'GR No.' },
+            { field: 'BUKRS', header: 'Company Code' },
+            { field: 'BUDAT', header: 'Posting Date' },
+            { field: 'MJAHR', header: 'Year' },
+            { field: 'LIFNR', header: 'Vendor No.' },
+            { field: 'MATNR', header: 'Material' },
+            { field: 'WERKS', header: 'Plant' }
+          ]"></app-data-table>
+      </div>
+    </div>
+
+    <div id="invoices-table" class="card" *ngIf="invoiceData.length > 0">
+      <h2>Invoices</h2>
+      <div class="table-wrapper">
+        <app-data-table [data]="invoiceData" [columns]="[
+            { field: 'BELNR', header: 'Invoice No.' },
+            { field: 'BUDAT', header: 'Posting Date' },
+             { field: 'LIFNR', header: 'Vendor No.' },
+           
+             { field: 'NAME1', header: 'Vendor Name' },
+              { field: 'ORT01', header: 'Vendor City' },
+            { field: 'WRBTR', header: 'Amount' },
+             { field: 'WAERS', header: 'Currency' },
+          ]"></app-data-table>
+      </div>
+    </div>
+  </div>
+</div>

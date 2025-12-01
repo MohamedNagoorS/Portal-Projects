@@ -1,0 +1,227 @@
+{
+  "info": {
+    "name": "Kaar Customer Portal API",
+    "description": "API collection for Kaar Customer Portal - SAP SOAP/RFC proxy endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CUSTOMER_ID\": \"CUST001\",\n  \"PASSCODE\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customer Data",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4000/api/profile/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "profile", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "CUST001"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Inquiry",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4000/api/inquiry/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "inquiry", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "CUST001"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Sales Order",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4000/api/salesorder/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "salesorder", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "CUST001"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Deliveries",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4000/api/deliveries/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "deliveries", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "CUST001"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Invoices",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4000/api/invoices/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "invoices", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "CUST001"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Payment Aging",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4000/api/aging/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "aging", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "CUST001"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Memos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4000/api/memos/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "memos", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "CUST001"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Sales Summary",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4000/api/sales-summary/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "sales-summary", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "CUST001"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Dashboard",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4000/api/dashboard/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "dashboard", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "CUST001"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4000/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "health"]
+        }
+      }
+    }
+  ]
+}
+

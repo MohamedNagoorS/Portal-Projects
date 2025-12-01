@@ -1,0 +1,11 @@
+<div class="kpi-card" role="button" tabindex="0" (click)="onCardClick()" (keyup.enter)="onCardClick()">
+  <div class="kpi-icon">
+    <img *ngIf="iconSrc" [src]="iconSrc" alt="{{title}} icon" />
+    <span *ngIf="!iconSrc">{{ icon }}</span>
+  </div>
+  <div class="kpi-content">
+    <div class="kpi-title">{{ title }}</div>
+    <div class="kpi-value">{{ getFormattedValue() }}</div>
+  </div>
+</div>
+

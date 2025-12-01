@@ -1,0 +1,28 @@
+<aside class="sidebar">
+  <nav class="sidebar-nav">
+    <ul class="nav-list">
+      <li *ngFor="let item of menuItems" class="nav-item">
+        <a
+          (click)="navigate(item.path)"
+          [class.active]="isActive(item.path)"
+          class="nav-link"
+        >
+          <span class="nav-icon">
+            <img *ngIf="getIconSrc(item.icon)" [src]="getIconSrc(item.icon)" alt="{{item.label}} icon" />
+            <span *ngIf="!getIconSrc(item.icon)">{{ item.icon }}</span>
+          </span>
+          <span class="nav-label">{{ item.label }}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a (click)="logout()" class="nav-link logout-link">
+          <span class="nav-icon">
+            <img [src]="getIconSrc('logout')" alt="Logout icon" />
+          </span>
+          <span class="nav-label">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+

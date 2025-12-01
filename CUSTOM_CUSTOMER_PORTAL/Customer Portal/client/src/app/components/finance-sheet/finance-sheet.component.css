@@ -1,0 +1,11 @@
+.finance-container {
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .finance-container {
+    margin-left: 0;
+    padding: 16px;
+  }
+}
+

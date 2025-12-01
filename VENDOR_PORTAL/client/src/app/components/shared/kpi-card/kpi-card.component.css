@@ -1,0 +1,71 @@
+.kpi-card {
+  background: var(--surface);
+  border-radius: var(--radius-md, 12px);
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(16,16,16,0.06);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 180ms var(--easing), box-shadow 180ms var(--easing);
+  /* stronger, slightly warm border so it reads on white backgrounds */
+  border: 1px solid rgba(128,0,0,0.10);
+  position: relative;
+}
+
+.kpi-card[role="button"]{cursor:pointer}
+.kpi-card[role="button"]:focus{box-shadow:0 8px 28px rgba(128,0,0,0.12)}
+
+.kpi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 46px rgba(16,16,16,0.12);
+}
+
+.kpi-icon {
+  font-size: 32px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  color: var(--surface);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(128,0,0,0.06);
+}
+
+.kpi-icon img{width:36px;height:36px;display:block}
+
+/* small left accent to match card accent bar style */
+.kpi-card::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--primary-dark), var(--primary-color));
+  border-top-left-radius: var(--radius-md, 12px);
+  border-bottom-left-radius: var(--radius-md, 12px);
+}
+
+/* ensure the accent sits above any subtle surrounding shadows */
+.kpi-card{z-index:1}
+.kpi-card::before{z-index:2}
+
+.kpi-content {
+  flex: 1;
+}
+
+.kpi-title {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.kpi-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
