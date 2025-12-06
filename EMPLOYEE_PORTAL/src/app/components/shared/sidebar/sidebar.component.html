@@ -1,0 +1,22 @@
+<div class="sidebar">
+    <div class="logo">
+        <i class="bi bi-building"></i> <span>Portal</span>
+    </div>
+    <nav>
+        <a routerLink="/dashboard" routerLinkActive="active">
+            <i class="bi bi-grid"></i> <span>Dashboard</span>
+        </a>
+        <a routerLink="/profile" routerLinkActive="active">
+            <i class="bi bi-person"></i> <span>Profile</span>
+        </a>
+        <a routerLink="/leave-history" routerLinkActive="active">
+            <i class="bi bi-clock-history"></i> <span>Leave History</span>
+        </a>
+        <a routerLink="/payslip" routerLinkActive="active">
+            <i class="bi bi-file-earmark-text"></i> <span>Payslip</span>
+        </a>
+        <a (click)="logout()" class="logout-link">
+            <i class="bi bi-box-arrow-right"></i> <span>Logout</span>
+        </a>
+    </nav>
+</div>

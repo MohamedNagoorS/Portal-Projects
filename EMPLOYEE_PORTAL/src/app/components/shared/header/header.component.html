@@ -1,0 +1,16 @@
+<header class="header">
+    <div class="search-bar">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search (e.g., Leave, Profile)..." class="search-input"
+            (keyup.enter)="onSearch($event)">
+    </div>
+    <div class="user-actions">
+        <i class="bi bi-bell notification-icon"></i>
+        <div class="user-profile">
+            <div class="avatar">
+                {{ user?.Fname?.charAt(0) || 'U' }}{{ user?.Lname?.charAt(0) || '' }}
+            </div>
+            <span class="username">{{ user?.Fname }} {{ user?.Lname }}</span>
+        </div>
+    </div>
+</header>

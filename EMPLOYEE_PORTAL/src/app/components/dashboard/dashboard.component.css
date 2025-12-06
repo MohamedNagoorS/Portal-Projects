@@ -1,0 +1,125 @@
+.layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    /* Prevent double scrollbars */
+}
+
+.main-content {
+    flex: 1;
+    background-color: var(--background-color);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Specific Widget Styles */
+.widget-profile {
+    border-left: 5px solid var(--primary-color);
+}
+
+.widget-profile h3 {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.widget-profile p {
+    margin: 12px 0;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.widget-profile strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.widget-leave {
+    border-left: 5px solid var(--warning-color);
+}
+
+.widget-leave h3 {
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.widget-leave ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget-leave li {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+
+.widget-leave li:last-child {
+    border-bottom: none;
+}
+
+.widget-leave li span:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.widget-leave li span:last-child {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.widget-payslip {
+    border-left: 5px solid var(--success-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-payslip h3 {
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.amount {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--success-color);
+    margin: 20px 0;
+    letter-spacing: -1px;
+}
+
+.widget-payslip .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}

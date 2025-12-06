@@ -1,0 +1,44 @@
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    background-color: var(--background-color);
+    overflow-y: auto;
+}
+
+.page-container {
+    padding: 30px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.request-card {
+    max-width: 600px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+textarea.input-field {
+    resize: vertical;
+}

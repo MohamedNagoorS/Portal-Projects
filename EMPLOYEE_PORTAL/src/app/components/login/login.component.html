@@ -1,0 +1,49 @@
+<div class="login-wrapper">
+  <div class="login-visual">
+    <div class="visual-content">
+      <h1>Employee Portal</h1>
+      <p>Access your employee portal to manage leaves, view payslips, and update your profile.</p>
+    </div>
+    <div class="visual-overlay"></div>
+  </div>
+
+  <div class="login-form-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h2>Sign In</h2>
+        <p>Enter your credentials to continue</p>
+      </div>
+
+      <div class="form-group">
+        <label for="employeeId">Employee ID</label>
+        <div class="input-wrapper">
+          <i class="bi bi-person-fill"></i>
+          <input type="text" id="employeeId" [(ngModel)]="employeeId" class="login-input-field" placeholder="Ex: 10001">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="passcode">Password</label>
+        <div class="input-wrapper">
+          <i class="bi bi-lock-fill"></i>
+          <input type="password" id="passcode" [(ngModel)]="passcode" class="login-input-field"
+            placeholder="Enter Password" (keyup.enter)="login()">
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        <i class="bi bi-exclamation-circle-fill"></i> {{ errorMessage }}
+      </div>
+
+      <button (click)="login()" class="btn btn-primary login-btn" [disabled]="isLoading">
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span *ngIf="isLoading"> Signing in...</span>
+        <span *ngIf="!isLoading">Sign In</span>
+      </button>
+
+      <div class="login-footer">
+        <p>Forgot password? <a href="#">Contact HR</a></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="layout">
+    <app-sidebar></app-sidebar>
+    <div class="main-content">
+        <app-header></app-header>
+        <div class="dashboard-container">
+            <h1>Welcome, {{ profile?.Fname || 'Employee' }}</h1>
+
+            <div class="widgets-grid">
+                <!-- Profile Widget -->
+                <div class="card widget-profile">
+                    <h3>My Profile</h3>
+                    <div *ngIf="profile">
+                        <p><strong>Name:</strong> {{ profile.Fname }} {{ profile.Lname }}</p>
+                        <p><strong>Position:</strong> {{ profile.JobPosition }}</p>
+                        <p><strong>Company:</strong> {{ profile.CompanyCode }}</p>
+                        <p><strong>City:</strong> {{ profile.City }}</p>
+                    </div>
+                    <div *ngIf="isLoading && !profile">Loading profile...</div>
+                    <div *ngIf="!isLoading && !profile">Profile data unavailable.</div>
+                </div>
+
+                <!-- Leave Widget -->
+                <div class="card widget-leave">
+                    <h3>Recent Leave Requests</h3>
+                    <ul *ngIf="recentLeaves.length > 0">
+                        <li *ngFor="let leave of recentLeaves">
+                            <span>{{leave.Empid}}</span>
+                            <span>{{ leave.Category }}</span>
+                            <span>{{ parseDate(leave.Sdate) | date:'mediumDate' }}</span>
+                        </li>
+                    </ul>
+                    <div *ngIf="recentLeaves.length === 0">No recent leave requests.</div>
+                </div>
+
+                <!-- Payslip Widget -->
+                <div class="card widget-payslip">
+                    <h3>Latest Payslip</h3>
+                    <div *ngIf="latestPayslip">
+                        <p><strong>Period:</strong> {{ latestPayslip.WageType }}</p>
+                        <p class="amount">{{ latestPayslip.CurrencyKey }} {{ latestPayslip.Amount }}</p>
+                        <button class="btn btn-primary" (click)="downloadPdf()">Download PDF</button>
+                    </div>
+                    <div *ngIf="!latestPayslip">No payslip available.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

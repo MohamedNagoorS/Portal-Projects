@@ -1,0 +1,122 @@
+.layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-content {
+    flex: 1;
+    background-color: var(--background-color);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container {
+    padding: 30px;
+    flex: 1;
+}
+
+h2 {
+    margin-bottom: 24px;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    /* For table rounded corners */
+    padding: 0;
+    /* Let table fill the card */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table td {
+    padding: 16px 24px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-sm {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-outline-secondary {
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    background: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--text-secondary);
+    color: white;
+    border-color: var(--text-secondary);
+}
+
+.btn-outline-info {
+    color: #17a2b8;
+    border: 1px solid #17a2b8;
+    background: transparent;
+}
+
+.btn-outline-info:hover {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.no-data {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 40px;
+    font-style: italic;
+}

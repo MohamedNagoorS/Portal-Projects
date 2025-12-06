@@ -1,0 +1,49 @@
+<div class="layout">
+    <app-sidebar></app-sidebar>
+    <div class="main-content">
+        <app-header></app-header>
+        <div class="page-container">
+            <h2>Payslips</h2>
+            <div class="card">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Period (Wage Type)</th>
+                            <th>Amount</th>
+                            <th>Currency</th>
+                            <th>Working Hours</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let slip of payslips">
+                            <td>{{ slip.WageType }}</td>
+                            <td>{{ slip.Amount }}</td>
+                            <td>{{ slip.CurrencyKey }}</td>
+                            <td>{{ slip.WorkingHours }}</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-outline-primary btn-sm" (click)="downloadPdf(slip)"
+                                        title="Download">
+                                        <i class="bi bi-download"></i>
+                                    </button>
+                                    <button class="btn btn-outline-secondary btn-sm" (click)="previewPdf(slip)"
+                                        title="Preview PDF">
+                                        <i class="bi bi-printer"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm" (click)="emailPayslip(slip)"
+                                        title="Email">
+                                        <i class="bi bi-envelope"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="payslips.length === 0">
+                            <td colspan="5" class="no-data">No payslips found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+/* Global Styles */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Premium Color Palette */
+  --primary-color: #0f2557;
+  /* Deep Royal Blue */
+  --secondary-color: #2851a3;
+  /* Lighter Blue for accents */
+  --accent-color: #ffd700;
+  /* Gold for subtle highlights */
+
+  --background-color: #f4f7fa;
+  /* Very light blue-gray */
+  --surface-color: #ffffff;
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #5f6368;
+  --text-light: #ffffff;
+
+  --border-color: #e0e0e0;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  --font-family: 'Inter', sans-serif;
+  --border-radius: 8px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utilities */
+.card {
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn {
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 4px rgba(15, 37, 87, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 8px rgba(15, 37, 87, 0.3);
+  transform: translateY(-1px);
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #f8f9fa;
+}
+
+.input-field:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15, 37, 87, 0.1);
+  background-color: #fff;
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
